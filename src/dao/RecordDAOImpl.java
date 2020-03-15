@@ -33,22 +33,11 @@ public class RecordDAOImpl implements RecordDAO {
     }
 	
 	public void findInfo(JPanel panel,JTextField text){
-		
-		Connection conn;
-		PreparedStatement preparedStatement = null;
-		try {
-            //输入要查询的预约号
-			String findId = text.getText();
-
-			//连接数据库
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/warehouse?useUnicode=true&characterEncoding=utf8","root","123456");
-
-			String sql = "select * from record where reservation_number="+findId;
-			preparedStatement = conn.prepareStatement(sql);
-			
-			ResultSet result = preparedStatement.executeQuery(); 
-				
+		//输入要查询的预约号
+		String findId = text.getText();
+		String sql = "select * from record where reservation_number="+findId;
+		try (Connection c = DbUtil.getConnection();PreparedStatement ps = c.prepareStatement(sql)) {           			
+			ResultSet result = ps.executeQuery(); 				
 			if(result.next())
 			{
                 
@@ -73,13 +62,11 @@ public class RecordDAOImpl implements RecordDAO {
                 }
 				
 				result.close();
-				preparedStatement.close();
+				ps.close();
 					
 				JOptionPane.showMessageDialog(null, show,"预约号查询",JOptionPane.PLAIN_MESSAGE);
 			}
 			else JOptionPane.showMessageDialog(null, "您输入的预约码有误","系统信息",JOptionPane.PLAIN_MESSAGE);
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
