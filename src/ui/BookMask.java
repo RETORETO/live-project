@@ -139,7 +139,7 @@ public class BookMask extends JFrame {
 	 */
 	public BookMask() {
 		setTitle("预约口罩");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(600, 100, 650, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(100, 149, 237));
