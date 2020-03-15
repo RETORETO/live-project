@@ -1,15 +1,15 @@
 package pojo;
 
 public class Manager {
-    private string id;
+    private string name;
     private string password;
 
-    public String getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
