@@ -1,21 +1,15 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Vector;
-
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
+
  
 
 public class isChoice {
@@ -54,7 +48,7 @@ public class isChoice {
                 test = result.getString("mask_number");
 				show += "预约口罩数:"+test+"/n";
 				test = result.getString("state");
-                switch(test){
+                switch(test.charAt(0)){
                  case '0' :
                  show += "未中签/n";
                   break; 
@@ -74,5 +68,9 @@ public class isChoice {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
+	}
+	public static void main(String[] args) throws Exception{
+		new isChoice ();
+
 	}
 }
