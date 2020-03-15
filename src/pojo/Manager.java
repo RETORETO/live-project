@@ -1,9 +1,4 @@
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.annotations.ApiModelProperty;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
-import java.util.Date;
-import java.util.Objects;
+package pojo;
 
 public class Manager {
     private string id;
