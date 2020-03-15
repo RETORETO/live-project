@@ -12,11 +12,13 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Window.Type;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class InquireMask extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField Jresevation_number;
 	private JTextField textField_1;
 
 	/**
@@ -43,19 +45,29 @@ public class InquireMask extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(600, 100, 650, 600);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(100, 149, 237));
+		contentPane.setForeground(new Color(0, 0, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setToolTipText("请输入预约号进行查询");
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setFont(new Font("微软雅黑", Font.PLAIN, 48));
-		textField.setBounds(14, 71, 606, 106);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		Jresevation_number = new JTextField();
+		Jresevation_number.setBackground(new Color(204, 255, 255));
+		Jresevation_number.setToolTipText("请输入预约号进行查询");
+		Jresevation_number.setHorizontalAlignment(SwingConstants.CENTER);
+		Jresevation_number.setFont(new Font("微软雅黑", Font.PLAIN, 48));
+		Jresevation_number.setBounds(14, 71, 606, 106);
+		contentPane.add(Jresevation_number);
+		Jresevation_number.setColumns(10);
 		
 		JButton btnNewButton = new JButton("查询");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String resevation_number=Jresevation_number.getText();
+				System.out.println(resevation_number);
+			}
+		});
 		btnNewButton.setToolTipText("请输入预约号进行查询");
 		btnNewButton.setBackground(new Color(175, 238, 238));
 		btnNewButton.setFont(new Font("微软雅黑", Font.PLAIN, 48));
