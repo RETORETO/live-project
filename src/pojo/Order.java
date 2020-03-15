@@ -2,12 +2,44 @@ package pojo;
 
 public class Order {
 	private String orderNum;
-    private int prize;
-    private int orderCount;
     private String name;
     private String id;
-    private String phone;
+    private int phone;
+    private int prize;
+    private int orderCount;
     
+    
+    public String getOrderNum() {
+        return orderNum;
+    }
+
+    public void setOrderNum(String orderNum) {
+        this.orderNum = orderNum;
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
     
     public int getPrize() {
     	return prize;
@@ -25,37 +57,11 @@ public class Order {
     	this.orderCount = orderCount;
     }
     
-    public String getName() {
-        return name;
-    }
+    
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getOrderNum() {
-        return orderNum;
-    }
-
-    public void setOrderNum(String orderNum) {
-        this.orderNum = orderNum;
-    }
+    
 }
 
  
