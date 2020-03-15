@@ -163,10 +163,6 @@ public class BookMask extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(26, 44, 0, 0);
-		contentPane.add(label);
-		
 		JTextArea textArea = new JTextArea();
 		textArea.setBackground(new Color(100, 149, 237));
 		textArea.setEditable(false);
@@ -227,6 +223,13 @@ public class BookMask extends JFrame {
 		textArea_3.setText("预约口罩数量：");
 		contentPane.add(textArea_3);
 		
+		JTextArea Respond = new JTextArea();
+		Respond.setFont(new Font("微软雅黑", Font.PLAIN, 27));
+		Respond.setEditable(false);
+		Respond.setBackground(new Color(100, 149, 237));
+		Respond.setBounds(16, 331, 196, 68);
+		contentPane.add(Respond);
+		
 		JSpinner Jmask_nums = new JSpinner();
 		Jmask_nums.setBackground(new Color(204, 255, 204));
 		Jmask_nums.setBounds(359, 243, 64, 62);
@@ -248,6 +251,10 @@ public class BookMask extends JFrame {
 				int mask_nums=(int)Jmask_nums.getValue();
 				System.out.println(name+'\n'+id+'\n'+phone);
 				System.out.println(mask_nums);
+				
+				
+				
+				Respond.setText("提示信息");
 			}
 		});
 		button.setBounds(226, 339, 183, 60);
@@ -297,6 +304,10 @@ public class BookMask extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				String all=Jall.getText();
 				System.out.println("设置口罩总量为"+all);
+				
+				
+				
+			   
 			}
 		});
 		button_3.setForeground(Color.BLACK);
@@ -304,5 +315,7 @@ public class BookMask extends JFrame {
 		button_3.setBackground(new Color(255, 204, 51));
 		button_3.setBounds(226, 414, 183, 60);
 		contentPane.add(button_3);
+		
+		
 	}
 }
