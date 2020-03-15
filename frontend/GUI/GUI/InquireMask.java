@@ -6,12 +6,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.JTextComponent;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Window.Type;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -37,6 +40,30 @@ public class InquireMask extends JFrame {
 		});
 	}
 
+	//限制JTextField的输入类型为数字
+    public static void addNumLimit(JTextComponent component) {
+     component.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) {
+             String s = component.getText();
+             String key="0123456789"+(char)8;
+             if(s.length() > 32||key.indexOf(e.getKeyChar())<0) {
+                 e.consume();
+             }         
+         }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             //do nothing
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) {
+             //do nothing
+         }
+     });
+ }
+
 	/**
 	 * Create the frame.
 	 */
@@ -58,6 +85,7 @@ public class InquireMask extends JFrame {
 		Jresevation_number.setFont(new Font("微软雅黑", Font.PLAIN, 48));
 		Jresevation_number.setBounds(14, 71, 606, 106);
 		contentPane.add(Jresevation_number);
+		addNumLimit(Jresevation_number);
 		Jresevation_number.setColumns(10);
 		
 		JButton btnNewButton = new JButton("查询");

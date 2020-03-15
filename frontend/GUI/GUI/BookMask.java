@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.JTextComponent;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
@@ -33,6 +34,9 @@ import com.jgoodies.forms.layout.RowSpec;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 
 public class BookMask extends JFrame {
@@ -61,6 +65,89 @@ public class BookMask extends JFrame {
 			}
 		});
 	}
+	
+	//限制JTextField的输入类型为身份证号
+    public static void addIdLimit(JTextComponent component) {
+     component.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) {
+             String s = component.getText();
+             String key="xX0123456789"+(char)8;
+             if(s.length() >= 18||key.indexOf(e.getKeyChar())<0) {
+                 e.consume();
+             }         
+         }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             //do nothing
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) {
+             //do nothing
+         }
+     });
+ }
+	
+	
+			//限制JTextField的输入类型为手机号
+       public static void addPhoneLimit(JTextComponent component) {
+        component.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                String s = component.getText();
+                String key="0123456789"+(char)8;
+                if(s.length() >= 11||key.indexOf(e.getKeyChar())<0) {
+                    e.consume();
+                }         
+            }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+                //do nothing
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) {
+                //do nothing
+            }
+        });
+    }
+
+		//限制JTextField的输入类型为数字
+		public class ControlTheInputFornum extends KeyAdapter {
+
+			public void keyTyped(KeyEvent e) {
+				String key="0123456789"+(char)8;
+				if(key.indexOf(e.getKeyChar())<0){
+					e.consume();//如果不是数字则取消
+				}
+			}
+		}    
+		//限制JTextField的输入类型为数字
+	       public static void addNumLimit(JTextComponent component) {
+	        component.addKeyListener(new KeyListener() {
+	            @Override
+	            public void keyTyped(KeyEvent e) {
+	                String s = component.getText();
+	                String key="0123456789"+(char)8;
+	                if(s.length() > 32||key.indexOf(e.getKeyChar())<0) {
+	                    e.consume();
+	                }         
+	            }
+	 
+	            @Override
+	            public void keyPressed(KeyEvent e) {
+	                //do nothing
+	            }
+	 
+	            @Override
+	            public void keyReleased(KeyEvent e) {
+	                //do nothing
+	            }
+	        });
+	    }
 
 	/**
 	 * Create the frame.
@@ -88,6 +175,7 @@ public class BookMask extends JFrame {
 		textArea.setText("真实姓名：");
 		contentPane.add(textArea);
 		
+		
 		Jname = new JTextField();
 		Jname.setBackground(new Color(204, 255, 204));
 		Jname.setFont(new Font("微软雅黑", Font.PLAIN, 48));
@@ -108,6 +196,9 @@ public class BookMask extends JFrame {
 		Jid.setBounds(326, 99, 297, 60);
 		Jid.setFont(new Font("微软雅黑", Font.PLAIN, 24));
 		Jid.setColumns(10);
+		//限制Jid只能输入数字和X
+		//Jid.addKeyListener(new ControlTheInputForid());
+		addIdLimit(Jid);
 		contentPane.add(Jid);
 		
 		textArea_2 = new JTextArea();
@@ -121,8 +212,11 @@ public class BookMask extends JFrame {
 		Jphone = new JTextField();
 		Jphone.setBackground(new Color(204, 255, 204));
 		Jphone.setBounds(306, 178, 269, 61);
-		Jphone.setFont(new Font("宋体", Font.PLAIN, 28));
+		Jphone.setFont(new Font("微软雅黑", Font.PLAIN, 28));
 		Jphone.setColumns(10);
+		//限制Jphone只能输入数字
+		//Jphone.addKeyListener(new ControlTheInputForphone());
+		addPhoneLimit(Jphone);
 		contentPane.add(Jphone);
 		
 		textArea_3 = new JTextArea();
@@ -136,7 +230,7 @@ public class BookMask extends JFrame {
 		JSpinner Jmask_nums = new JSpinner();
 		Jmask_nums.setBackground(new Color(204, 255, 204));
 		Jmask_nums.setBounds(359, 243, 64, 62);
-		Jmask_nums.setFont(new Font("宋体", Font.PLAIN, 48));
+		Jmask_nums.setFont(new Font("微软雅黑", Font.PLAIN, 48));
 		Jmask_nums.setModel(new SpinnerNumberModel(1, 1, 3, 1));
 		contentPane.add(Jmask_nums);
 		
@@ -193,13 +287,16 @@ public class BookMask extends JFrame {
 		Jall.setFont(new Font("微软雅黑", Font.PLAIN, 30));
 		Jall.setBounds(14, 411, 195, 60);
 		contentPane.add(Jall);
+		//限制Jall只能输入数字
+		Jall.addKeyListener(new ControlTheInputFornum());
 		Jall.setColumns(10);
 		
 		JButton button_3 = new JButton("设置口罩总量");
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("设置口罩总量");
+				String all=Jall.getText();
+				System.out.println("设置口罩总量为"+all);
 			}
 		});
 		button_3.setForeground(Color.BLACK);
