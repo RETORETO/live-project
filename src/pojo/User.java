@@ -3,7 +3,7 @@ package pojo;
 public class User {
     private String name;
     private String id;
-    private String phone;
+    private int phone;
     private String orderNum;
 
     public String getName() {
@@ -26,7 +26,7 @@ public class User {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
