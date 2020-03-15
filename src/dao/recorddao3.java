@@ -13,6 +13,8 @@ import javax.swing.JTextField;
  
 
 public class isChoice {
+	JPanel panel;
+	JTextField text;
    // 构造函数
 	public isChoice(){}
 	
@@ -71,6 +73,5 @@ public class isChoice {
 	}
 	public static void main(String[] args) throws Exception{
 		new isChoice ();
-
 	}
 }
