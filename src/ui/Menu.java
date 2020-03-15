@@ -5,6 +5,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import java.awt.EventQueue;
@@ -50,21 +51,23 @@ public class Menu extends JFrame {
 		
 		String path = "src/images/background.jpg";  
 		ImageIcon background = new ImageIcon(path);
-		// 把背景图片显示在一个标签里面
-		label = new JLabel(background);		//把背景图片添加到标签里
-		label.setBounds(0, 0, background.getIconWidth(), background.getIconHeight());	//把标签设置为和图片等高等宽
-		myPanel = (JPanel)this.getContentPane();		//把我的面板设置为内容面板
-		myPanel.setOpaque(false);					//把我的面板设置为不可视
-		myPanel.setLayout(new FlowLayout());		//把我的面板设置为流动布局
-		this.getLayeredPane().setLayout(null);		//把分层面板的布局置空
+		label = new JLabel(background);	
+		label.setBounds(0, 0, background.getIconWidth(), background.getIconHeight());
+		myPanel = (JPanel)this.getContentPane();
+		myPanel.setOpaque(false);
+		myPanel.setLayout(new FlowLayout());
+		this.getLayeredPane().setLayout(null);
 		this.getLayeredPane().add(label, new Integer(Integer.MIN_VALUE));
 		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(new ImageIcon("src/images/appointment.png"));
 		btnNewButton.setBounds(712, 76, 329, 115);
-		//btnNewButton.setIcon(new ImageIcon(getClass().getResource("src/images/appointment.png"))); 
+		
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				BookMask book = new BookMask();
+				book.setVisible(true);
 			}
 		});
 		contentPane.setLayout(null);
@@ -72,16 +75,16 @@ public class Menu extends JFrame {
 		
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
+				InquireMask inquire = new InquireMask();
+				inquire.setVisible(true);
 			}
 		});
+
+		
 		btnNewButton_1.setIcon(new ImageIcon("src/images/lottery.png"));
 		btnNewButton_1.setBounds(1074, 76, 329, 115);
 		contentPane.add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setIcon(new ImageIcon("src/images/admin_mode.png"));
-		btnNewButton_2.setBounds(1074, 535, 329, 115);
-		contentPane.add(btnNewButton_2);
 	}
 }
