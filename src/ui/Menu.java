@@ -40,6 +40,8 @@ public class Menu extends JFrame {
 	 * Create the frame.
 	 */
 	public Menu() {
+		JPanel myPanel;
+		JLabel label;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1440, 732);
 		contentPane = new JPanel();
@@ -49,6 +51,13 @@ public class Menu extends JFrame {
 		String path = "src/images/background.jpg";  
 		ImageIcon background = new ImageIcon(path);
 		// 把背景图片显示在一个标签里面
+		label = new JLabel(background);		//把背景图片添加到标签里
+		label.setBounds(0, 0, background.getIconWidth(), background.getIconHeight());	//把标签设置为和图片等高等宽
+		myPanel = (JPanel)this.getContentPane();		//把我的面板设置为内容面板
+		myPanel.setOpaque(false);					//把我的面板设置为不可视
+		myPanel.setLayout(new FlowLayout());		//把我的面板设置为流动布局
+		this.getLayeredPane().setLayout(null);		//把分层面板的布局置空
+		this.getLayeredPane().add(label, new Integer(Integer.MIN_VALUE));
 		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(new ImageIcon("src/images/appointment.png"));
