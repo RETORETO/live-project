@@ -1,8 +1,8 @@
 package pojo;
 
 public class Manager {
-    private string name;
-    private string password;
+    private String name;
+    private String password;
 
     public String getName() {
         return name;
