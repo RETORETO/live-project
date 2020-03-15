@@ -5,7 +5,7 @@ import java.sql.*;
 public class DbUtil {
 	static String ip = "127.0.0.1";
 	static int port = 3306;
-	static String database = "mask_orders";
+	static String database = "mask_appoint";
 	static String encoding = "UTF-8";
 	static String loginName = "root";
 	static String password = "123456";
