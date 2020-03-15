@@ -4,22 +4,42 @@
     <meta charset="utf-8">
     <title>预约口罩页面</title>
     <!-- 引入 echarts.js -->
-    <link rel="stylesheet" type="text/css" href=""/>
+    <link rel="stylesheet" type="text/css" href="css/预约口罩.css"/>
 
 </head>
 <body>
     <div id="warp">
         <div id="middle">
-            <h1>口罩预约</h1>
-            <form action="" method="get">
-                真实姓名<input type="text" name="firstname"/>
-                身份证号<input/>
-                手机号<input/>
-                预约口罩数量<input type="number" name="points" min="1" max="3" />
-
+            <form action="预约口罩.php" method="get" name="预约信息">
+                <fieldset>
+                    <legend>口罩预约:</legend>
+                    真实姓名:<br>
+                    <input type="text" name="name" value="张三">
+                    <br>
+                    身份证号:<br>
+                    <input type="text" name="id" value="xxxx">
+                    <br>
+                    手机号:<br>
+                    <input type="number" name="phone" value="100866666"/><br/>
+                    预约口罩数量:<br>
+                    <input type="number" name="mask_nums" min="1" max="3" /><br/>
+                    <input type="submit" value="预约口罩">
+                </fieldset>
             </form>
-
-
+            <form action="开始预约.php">
+                <input type="submit" value="开始预约">
+            </form>
+            <form action="结束预约.php">
+                <input type="submit" value="结束预约">
+            </form>
+            <form action="设置口罩总量.php">
+                <fieldset>
+                    <legend>设置口罩总量:</legend>
+                    <input type="number" name="all" value="xxxx">
+                    <br>
+                    <input type="submit" value="设置口罩总量">
+                </fieldset>
+            </form>
         </div>
 
     </div>
