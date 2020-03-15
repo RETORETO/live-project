@@ -4,7 +4,7 @@ public class Order {
 	private String orderNum;
     private String name;
     private String id;
-    private String phone;
+    private int phone;
     private int prize;
     private int orderCount;
     
@@ -33,11 +33,11 @@ public class Order {
         this.id = id;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
     
