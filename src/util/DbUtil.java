@@ -18,13 +18,13 @@ public class DbUtil {
 		}
 	}
 	
-	/* 数据库连接获取 */
+	/* 数据库连接 */
 	public static Connection getConnection() throws SQLException {
 		String url = String.format("jdbc:mysql://%s:%d/%s?characterEncoding=%s", ip, port, database, encoding);
 		return DriverManager.getConnection(url, loginName, password);
 	}
 	
-	/* 关闭连接的方法 */
+	/* 关闭数据库连接 */
 	public static void close(ResultSet rs, Statement stmt, Connection conn) {
 		try {
 			if (rs != null)
@@ -50,3 +50,4 @@ public class DbUtil {
 		System.out.println(getConnection());
 	}
 
+}
