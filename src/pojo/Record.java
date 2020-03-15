@@ -4,8 +4,8 @@ public class Record {
     private String name;
     private String id;
     private String tel;
-    private int mask_number;
-    private int reservation_number;
+    private int maskNumber;
+    private int reservationNumber;
     private int turn;
     private int status;
     
@@ -34,20 +34,20 @@ public class Record {
         this.tel = tel;
     }
 
-    public int getMask_number() {
-        return mask_number;
+    public int getMaskNumber() {
+        return maskNumber;
     }
 
-    public void setMask_number(int mask_number) {
-        this.mask_number = mask_number;
+    public void setMaskNumber(int maskNumber) {
+        this.maskNumber = maskNumber;
     }
     
-    public int getReservation_number() {
-    	return reservation_number;
+    public int getReservationNumber() {
+    	return reservationNumber;
     }
     
-    public void setReservation_number(int reservation_number) {
-        this.reservation_number = reservation_number;
+    public void setReservationNumber(int reservationNumber) {
+        this.reservationNumber = reservationNumber;
     }
     
     public int getTurn() {
